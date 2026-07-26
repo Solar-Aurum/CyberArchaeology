@@ -1,0 +1,1766 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:wght@400;500;600;700&family=Share+Tech+Mono&display=swap');
+
+
+:root {
+
+    --bg-color:#080d12;
+    --panel-bg:#111820;
+    --panel-light:#18232d;
+
+    --cyan:#00c3ff;
+    --cyan-dark:#008bb8;
+
+    --success:#3cff8b;
+    --danger:#ff4655;
+
+    --orange:#ff9900;
+
+    --text:#d7e3ea;
+    --text-bright:#ffffff;
+
+    --border:#263746;
+
+}
+
+
+
+
+*{
+
+    box-sizing:border-box;
+
+}
+
+
+
+
+
+body{
+
+    margin:0;
+
+    padding:30px;
+
+    background:
+    radial-gradient(
+    circle at top,
+    #122333,
+    #080d12 55%
+    );
+
+    color:var(--text);
+
+    font-family:
+    'Exo 2',
+    sans-serif;
+
+    line-height:1.6;
+
+}
+
+
+
+
+
+
+
+.container{
+
+    max-width:1000px;
+
+    margin:auto;
+
+    background:
+    rgba(17,24,32,0.95);
+
+    padding:35px;
+
+    border-radius:15px;
+
+    border:1px solid var(--border);
+
+    box-shadow:
+    0 0 40px
+    rgba(0,195,255,0.08);
+
+}
+
+
+
+
+
+
+
+header{
+
+    text-align:center;
+
+    border-bottom:
+    1px solid var(--border);
+
+    padding-bottom:25px;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+
+
+
+h1{
+
+    font-family:
+    'Audiowide',
+    sans-serif;
+
+    color:var(--cyan);
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    text-shadow:
+    0 0 15px
+    rgba(0,195,255,.7);
+
+}
+
+
+
+
+
+header p{
+
+    color:#8ca3b3;
+
+}
+
+
+
+
+
+
+
+
+.hud{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px;
+
+    margin-bottom:25px;
+
+    background:#0b1219;
+
+    border:
+    1px solid var(--border);
+
+    border-radius:10px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+#timer{
+
+    color:var(--danger);
+
+    font-family:
+    'Share Tech Mono',
+    monospace;
+
+    font-size:1.3rem;
+
+}
+
+
+
+
+
+#score-display{
+
+    color:var(--cyan);
+
+}
+
+
+
+
+
+
+
+
+.round-card{
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(255,255,255,.03),
+    rgba(0,0,0,.15)
+    );
+
+    border:
+    1px solid var(--border);
+
+    border-radius:12px;
+
+    padding:30px;
+
+    margin-bottom:30px;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.round-card:hover{
+
+    border-color:var(--cyan);
+
+    box-shadow:
+    0 0 20px
+    rgba(0,195,255,.1);
+
+}
+
+
+
+
+
+.round-card.locked{
+
+    opacity:.25;
+
+    pointer-events:none;
+
+}
+
+
+
+
+
+.round-card.completed{
+
+    border-color:var(--cyan);
+
+    background:
+    rgba(0,195,255,.03);
+
+}
+
+
+
+
+
+
+
+h2{
+
+    color:white;
+
+    border-bottom:
+    1px solid var(--border);
+
+    padding-bottom:10px;
+
+}
+
+
+
+
+
+
+
+.status-badge{
+
+    float:right;
+
+    background:#263746;
+
+    padding:
+    5px 12px;
+
+    border-radius:20px;
+
+    font-size:.8rem;
+
+}
+
+
+
+
+
+
+
+button{
+
+    background:var(--cyan);
+
+    color:#001018;
+
+    border:none;
+
+    padding:
+    12px 22px;
+
+    border-radius:6px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    margin:5px;
+
+    transition:.2s;
+
+}
+
+
+
+
+
+button:hover{
+
+    background:#66dcff;
+
+    box-shadow:
+    0 0 15px
+    rgba(0,195,255,.5);
+
+}
+
+
+
+
+
+button:disabled{
+
+    background:#444;
+
+    color:#888;
+
+    cursor:not-allowed;
+
+}
+
+
+
+
+
+
+
+input{
+
+    background:#070b10;
+
+    color:white;
+
+    border:
+    1px solid var(--border);
+
+    padding:12px;
+
+    border-radius:6px;
+
+}
+
+
+
+
+
+input:focus{
+
+    outline:none;
+
+    border-color:var(--cyan);
+
+}
+
+
+
+
+
+.feedback{
+
+    display:none;
+
+    margin-top:15px;
+
+    font-weight:bold;
+
+}
+
+/* =========================
+   ROUND 1 ARCHIVE BOARD
+========================= */
+
+
+.archive-board{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:25px;
+
+    margin-top:25px;
+
+}
+
+
+
+
+
+.archive-card{
+
+    background:
+    linear-gradient(
+    145deg,
+    #111c25,
+    #070d13
+    );
+
+    border:
+    1px solid #263746;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+
+
+.archive-card:hover{
+
+    transform:
+    translateY(-5px);
+
+    border-color:var(--cyan);
+
+}
+
+
+
+
+
+.archive-card.selected{
+
+    border-color:var(--cyan);
+
+    background:
+    rgba(0,195,255,.08);
+
+}
+
+
+
+
+
+
+
+.log-box{
+
+    margin-top:15px;
+
+    padding:15px;
+
+    background:#05090d;
+
+    border-left:
+    3px solid var(--cyan);
+
+    color:#9ecddd;
+
+    font-family:
+    'Share Tech Mono',
+    monospace;
+
+}
+
+
+
+
+
+
+
+.recovery-panel{
+
+    margin-top:30px;
+
+    padding:20px;
+
+    background:#05090d;
+
+    border:
+    1px solid var(--cyan-dark);
+
+    border-radius:12px;
+
+    text-align:center;
+
+}
+
+
+
+
+
+#archive-order{
+
+    margin-top:15px;
+
+    min-height:45px;
+
+    padding:12px;
+
+    background:#0b1218;
+
+    color:var(--cyan);
+
+    font-family:
+    'Share Tech Mono',
+    monospace;
+
+    font-size:1.2rem;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   ROUND 3 CIPHER CHAMBER
+========================= */
+
+
+.cipher-terminal{
+
+
+    margin:25px 0;
+
+    background:#05090d;
+
+    border:
+    1px solid var(--cyan-dark);
+
+    border-radius:12px;
+
+    padding:25px;
+
+    text-align:center;
+
+    box-shadow:
+
+    inset 0 0 20px
+    rgba(0,195,255,.08);
+
+
+}
+
+
+
+
+
+.cipher-terminal h3{
+
+    color:var(--cyan);
+
+    font-family:
+    'Share Tech Mono',
+    monospace;
+
+    letter-spacing:2px;
+
+}
+
+
+
+
+
+.cipher-message{
+
+
+    margin-top:20px;
+
+    padding:25px;
+
+
+    font-family:
+    'Share Tech Mono',
+    monospace;
+
+
+    font-size:2rem;
+
+
+    letter-spacing:8px;
+
+
+    color:var(--cyan);
+
+
+    border:
+    1px dashed var(--cyan);
+
+
+    background:
+    rgba(0,195,255,.05);
+
+
+}
+
+
+
+
+
+
+
+.engineer-note{
+
+
+    background:#081018;
+
+    border-left:
+    4px solid var(--orange);
+
+
+    padding:20px;
+
+    margin-top:20px;
+
+
+    border-radius:8px;
+
+
+}
+
+
+
+
+
+.engineer-note h3{
+
+
+    color:var(--orange);
+
+}
+
+
+
+
+
+.engineer-note p{
+
+
+    margin:8px 0;
+
+    line-height:1.5;
+
+
+}
+
+
+
+
+
+
+
+.answer-panel{
+
+    margin-top:20px;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   ROUND 4 LOGIC MATRIX
+========================= */
+
+
+.logic-columns{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+
+
+
+
+
+.logic-column{
+
+
+    background:#0a1016;
+
+
+    border:
+    1px solid var(--border);
+
+
+    padding:15px;
+
+
+    border-radius:8px;
+
+
+}
+
+
+
+
+
+.logic-column ul{
+
+
+    list-style:none;
+
+    margin:0;
+
+    padding:0;
+
+
+}
+
+
+
+
+
+.logic-column li{
+
+
+    padding:6px 0;
+
+
+    border-bottom:
+    1px solid var(--border);
+
+
+}
+
+
+
+
+
+
+
+/* Smaller clue spacing */
+
+
+
+.clue-box ol{
+
+
+    margin:8px 0 0 20px;
+
+
+    padding:0;
+
+
+}
+
+
+
+
+
+.clue-box li{
+
+
+    margin:3px 0;
+
+
+    line-height:0.5;
+
+
+}
+
+
+
+
+
+
+
+
+/* =========================
+   ROUND 5 BINARY
+========================= */
+
+
+.binary-box{
+
+
+    text-align:center;
+
+
+    background:#05090d;
+
+
+    border:
+    1px solid var(--cyan-dark);
+
+
+    padding:20px;
+
+
+    border-radius:8px;
+
+
+    font-family:
+    'Share Tech Mono',
+    monospace;
+
+
+    color:var(--cyan);
+
+
+}
+
+
+
+
+
+.binary-word{
+
+
+    margin:15px;
+
+
+    font-size:1.2rem;
+
+
+    letter-spacing:2px;
+
+
+}
+
+
+
+
+
+
+.hint-btn{
+
+
+    background:var(--orange);
+
+    color:#05090d;
+
+}
+
+
+
+
+
+.hint-btn:hover{
+
+
+    background:#ffb84d;
+
+
+}
+
+
+
+
+
+.hint-content{
+
+
+    background:#1c120c;
+
+
+    border:
+    1px solid var(--orange);
+
+
+    padding:15px;
+
+
+    border-radius:8px;
+
+
+    color:#ffebcc;
+
+
+    margin-top:15px;
+
+
+}
+
+/* =========================
+   ROUND 6 FINAL CIPHER
+========================= */
+
+
+.code-box,
+.source-box,
+pre{
+
+
+    background:#05090d;
+
+
+    color:var(--cyan);
+
+
+    padding:10px;
+
+
+    border-radius:8px;
+
+
+    border:
+    1px solid #20313d;
+
+
+    font-family:
+    'Share Tech Mono',
+    monospace;
+
+
+    overflow-x:auto;
+
+
+    white-space:pre-wrap;
+
+
+    line-height:1.5;
+
+
+}
+
+
+
+
+
+
+pre{
+
+
+    margin:0;
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   TABLES / DATA DISPLAY
+========================= */
+
+
+table{
+
+
+    width:100%;
+
+
+    border-collapse:collapse;
+
+
+    margin:10px 0;
+
+
+}
+
+
+
+
+
+th{
+
+
+    background:#10202b;
+
+
+    color:var(--cyan);
+
+
+}
+
+
+
+
+
+td,
+th{
+
+
+    border:
+    1px solid var(--border);
+
+
+    padding:10px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   PIPE CONNECTION SYSTEM
+========================= */
+
+
+
+.pipe-grid{
+
+
+    display:grid;
+
+
+    gap:5px;
+
+
+    background:#05090d;
+
+
+    padding:12px;
+
+
+    border-radius:10px;
+
+
+    border:
+    1px solid var(--border);
+
+
+    margin:20px auto;
+
+
+}
+
+
+
+
+
+
+
+.grid-5x5{
+
+
+    width:310px;
+
+
+    grid-template-columns:
+    repeat(5,55px);
+
+
+}
+
+
+
+
+
+
+
+.grid-10x10{
+
+
+    width:610px;
+
+
+    grid-template-columns:
+    repeat(10,55px);
+
+
+}
+
+
+
+
+
+
+
+
+.pipe-tile{
+
+
+    width:55px;
+
+
+    height:55px;
+
+
+    background:#101a24;
+
+
+    border:
+    1px solid #1f3246;
+
+
+    border-radius:5px;
+
+
+    cursor:pointer;
+
+
+    position:relative;
+
+
+    transition:
+    transform .25s ease,
+    background .2s;
+
+
+}
+
+
+
+
+
+.pipe-tile:hover{
+
+
+    background:#162535;
+
+
+    border-color:var(--cyan);
+
+
+}
+
+
+
+
+
+
+
+/*
+   Base pipe line
+*/
+
+
+
+.pipe-line{
+
+
+    position:absolute;
+
+
+    background:var(--cyan);
+
+
+    box-shadow:
+    0 0 10px var(--cyan);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* Straight pipe */
+
+
+.straight-pipe::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:12px;
+
+
+    height:100%;
+
+
+    left:21px;
+
+
+    top:0;
+
+
+    background:var(--cyan);
+
+
+    box-shadow:
+    0 0 8px var(--cyan);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* Elbow pipe — bends exactly at the centre of the tile */
+
+
+.elbow-pipe::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:12px;
+
+
+    height:50%;
+
+
+    left:21px;
+
+
+    top:0;
+
+
+    background:var(--cyan);
+
+
+    box-shadow:
+    0 0 8px var(--cyan);
+
+
+}
+
+
+
+.elbow-pipe::after{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:50%;
+
+
+    height:12px;
+
+
+    top:21px;
+
+
+    left:50%;
+
+
+    background:var(--cyan);
+
+
+    box-shadow:
+    0 0 8px var(--cyan);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* Cap / source / destination */
+
+
+.cap-pipe::before{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:12px;
+
+
+    height:50%;
+
+
+    left:21px;
+
+
+    top:0;
+
+
+    background:var(--cyan);
+
+
+    box-shadow:
+    0 0 8px var(--cyan);
+
+
+}
+
+
+
+
+
+
+
+
+
+.start-pipe{
+
+
+    border-color:#3cff8b;
+
+
+}
+
+
+
+.start-pipe::before{
+
+
+    background:#3cff8b;
+
+
+    box-shadow:
+    0 0 12px #3cff8b;
+
+
+    animation:
+    pipePulse 1.4s infinite;
+
+
+}
+
+
+
+
+
+
+.end-pipe{
+
+
+    border-color:#ff9900;
+
+
+}
+
+
+
+.end-pipe::before{
+
+
+    background:#ff9900;
+
+
+    box-shadow:
+    0 0 12px #ff9900;
+
+
+    animation:
+    pipePulse 1.4s infinite;
+
+
+}
+
+
+
+
+
+
+@keyframes pipePulse{
+
+
+    0%,100%{
+
+        opacity:1;
+
+    }
+
+
+    50%{
+
+        opacity:.5;
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   FINAL SCREEN
+========================= */
+
+
+
+.final-key{
+
+
+    text-align:center;
+
+
+    font-size:2.2rem;
+
+
+    color:var(--orange);
+
+
+}
+
+
+
+/* =========================
+   MOBILE SUPPORT
+========================= */
+
+
+@media(max-width:700px){
+
+
+
+body{
+
+
+    padding:10px;
+
+
+}
+
+
+
+.container{
+
+
+    padding:20px;
+
+
+}
+
+
+
+.archive-board,
+.logic-columns{
+
+
+    grid-template-columns:
+    1fr;
+
+
+}
+
+
+
+.hud{
+
+
+    flex-direction:column;
+
+
+    gap:10px;
+
+
+}
+
+
+
+
+
+.grid-10x10{
+
+
+    width:100%;
+
+
+    overflow-x:auto;
+
+
+}
+
+
+
+}
+
+
+/* =========================
+   VICTORY SCREEN
+========================= */
+
+.victory-body{
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+
+}
+
+.victory-container{
+
+    max-width:700px;
+    width:100%;
+    margin:auto;
+    background:rgba(17,24,32,0.95);
+    padding:50px 40px;
+    border-radius:18px;
+    border:1px solid var(--cyan-dark);
+    box-shadow:0 0 60px rgba(0,195,255,0.15);
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+
+}
+
+.victory-stars{
+
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #ffffff55, transparent),
+        radial-gradient(2px 2px at 90px 80px, #ffffff33, transparent),
+        radial-gradient(1px 1px at 150px 40px, #ffffff44, transparent),
+        radial-gradient(2px 2px at 210px 110px, #ffffff2a, transparent),
+        radial-gradient(1px 1px at 260px 20px, #ffffff40, transparent),
+        radial-gradient(2px 2px at 320px 90px, #ffffff33, transparent);
+    background-repeat:repeat;
+    background-size:350px 150px;
+    animation:starDrift 60s linear infinite;
+    pointer-events:none;
+    opacity:0.6;
+
+}
+
+@keyframes starDrift{
+
+    from{ background-position:0 0; }
+    to{ background-position:-350px 150px; }
+
+}
+
+.victory-title{
+
+    font-family:'Audiowide', sans-serif;
+    color:var(--cyan);
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-size:2.4rem;
+    text-shadow:0 0 20px rgba(0,195,255,0.8), 0 0 40px rgba(0,195,255,0.4);
+    min-height:1.4em;
+    white-space:pre;
+    position:relative;
+    z-index:1;
+
+}
+
+.victory-title::after{
+
+    content:"";
+    display:inline-block;
+    width:3px;
+    height:1em;
+    background:var(--cyan);
+    margin-left:4px;
+    vertical-align:middle;
+    animation:cursorBlink 0.8s steps(1) infinite;
+
+}
+
+.victory-title.done::after{
+
+    display:none;
+
+}
+
+@keyframes cursorBlink{
+
+    0%,50%{ opacity:1; }
+    51%,100%{ opacity:0; }
+
+}
+
+.victory-subtitle{
+
+    color:#8ca3b3;
+    margin-top:10px;
+    letter-spacing:2px;
+    position:relative;
+    z-index:1;
+
+}
+
+.victory-stats{
+
+    margin-top:35px;
+    text-align:left;
+    background:#05090d;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:20px 25px;
+    position:relative;
+    z-index:1;
+
+}
+
+.stat-line{
+
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+    opacity:0;
+    transform:translateY(12px);
+    animation:statReveal 0.6s ease forwards;
+
+}
+
+.stat-line:last-child{
+
+    border-bottom:none;
+
+}
+
+@keyframes statReveal{
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+.stat-label{
+
+    color:#8ca3b3;
+    font-family:'Share Tech Mono', monospace;
+
+}
+
+.stat-value{
+
+    color:var(--cyan);
+    font-weight:bold;
+    font-family:'Share Tech Mono', monospace;
+
+}
+
+.victory-report{
+
+    margin-top:25px;
+    text-align:left;
+    background:#081018;
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:20px 25px;
+    opacity:0;
+    transform:translateY(12px);
+    animation:statReveal 0.6s ease forwards;
+    position:relative;
+    z-index:1;
+
+}
+
+.victory-report p{
+
+    color:var(--success);
+    margin:8px 0;
+    font-family:'Share Tech Mono', monospace;
+    font-size:0.95rem;
+
+}
+
+.victory-rank{
+
+    margin-top:25px;
+    color:var(--orange);
+    font-family:'Audiowide', sans-serif;
+    letter-spacing:2px;
+    font-size:1.2rem;
+    opacity:0;
+    transform:translateY(12px);
+    animation:statReveal 0.6s ease forwards;
+    text-shadow:0 0 15px rgba(255,153,0,0.5);
+    position:relative;
+    z-index:1;
+
+}
+
+.victory-btn{
+
+    margin-top:30px;
+    font-size:1rem;
+    padding:14px 30px;
+    opacity:0;
+    transform:translateY(12px);
+    animation:statReveal 0.6s ease forwards;
+    position:relative;
+    z-index:1;
+
+}

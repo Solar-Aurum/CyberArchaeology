@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Operation: Cyber-Archaeology
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<header>
+
+    <h1>
+        Operation: Cyber-Archaeology
+    </h1>
+
+
+    <p>
+        Reconstruct the lost digital remnants of civilization
+    </p>
+
+</header>
+
+
+
+
+
+<div class="round-card">
+
+
+<h2>
+    Mission Briefing
+</h2>
+
+
+
+<p>
+Year 2075.
+</p>
+
+
+
+<p>
+The world's largest digital archives have collapsed after a global system failure.
+Fragments of forgotten databases, encrypted transmissions, and corrupted hardware circuits remain.
+</p>
+
+
+
+<p>
+You are a Cyber-Archaeologist assigned to recover the lost information.
+</p>
+
+
+
+<p>
+Eight security layers protect the final restoration system.
+Solve each challenge, recover the hidden fragments, and restore civilization.
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="round-card">
+
+
+<h2>
+    Operation Rules
+</h2>
+
+
+<ul>
+
+<li>
+Each recovered system provides a hidden restoration digit
+(Please Make a Note of the Restoration Digits).
+</li>
+
+
+<li>
+Rounds unlock only after the previous system has been repaired.
+</li>
+
+
+<li>
+Incorrect submissions will reduce your system integrity score.
+</li>
+
+
+<li>
+Accessing secure database hints will cost processing integrity points.
+</li>
+
+
+<li>
+The final master key will activate the civilization reboot.
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+
+<div class="round-card" id="nameEntry">
+
+    <h2>Archaeologist Registration</h2>
+
+    <p>Enter your callsign before deploying into the archive.</p>
+
+    <input
+        type="text"
+        id="playerNameInput"
+        placeholder="Enter your name"
+        maxlength="20"
+    >
+
+    <div class="feedback" id="nameFeedback"></div>
+
+</div>
+
+
+
+<div style="text-align:center;margin-top:40px;">
+
+
+<button onclick="startMission()">
+
+START OPERATION
+
+</button>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+function startMission(){
+
+    let nameInput = document.getElementById("playerNameInput");
+    let name = nameInput.value.trim();
+
+    let feedbackBox = document.getElementById("nameFeedback");
+
+    if(name === ""){
+
+        feedbackBox.style.display = "block";
+        feedbackBox.style.color = "#ff4655";
+        feedbackBox.innerText = "Enter a name before starting the operation.";
+
+        return;
+
+    }
+
+    try{
+
+        localStorage.setItem("playerName", name);
+
+    } catch(e){
+
+        console.warn("Could not save name:", e);
+
+    }
+
+    window.location.href = "mission.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

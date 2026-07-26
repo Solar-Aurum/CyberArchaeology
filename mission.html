@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Cyber-Archaeology Mission
+</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+
+<header>
+
+<h1>
+Digital Civilization Recovery
+</h1>
+
+
+<p>
+SYSTEM STATUS: ARCHIVE RESTORATION IN PROGRESS
+</p>
+
+
+</header>
+
+
+
+
+
+<div class="hud">
+
+
+<div>
+
+SYSTEM COLLAPSE TIMER:
+
+<span id="timer">
+60:00
+</span>
+
+</div>
+
+
+
+<div>
+
+SYSTEM INTEGRITY:
+
+<span id="score-display">
+0 / 140 PTS
+</span>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- ===============================
+     ROUND 1 : THE FORGOTTEN FILE VAULT
+================================ -->
+
+<div id="round1" class="round-card">
+
+    <h2>
+        🏺 Round 1: The Forgotten File Vault
+        <span class="status-badge" id="status1">ACTIVE</span>
+    </h2>
+
+
+    <p>
+        <strong>Mission:</strong>
+        The backup system lost all timestamps.
+        Select the Archives in the order of their time of creation
+    </p>
+
+
+
+    <div class="archive-board">
+
+
+        <div class="archive-card"
+             data-id="A"
+             onclick="selectArchive(this)">
+
+            <h3>Archive A</h3>
+
+            <p>
+                <b>Archive ID:</b> A-17
+            </p>
+
+            <div class="log-box">
+                "Created exactly two updates after the oldest archive."
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="archive-card"
+             data-id="B"
+             onclick="selectArchive(this)">
+
+            <h3>Archive B</h3>
+
+            <p>
+                <b>Archive ID:</b> B-03
+            </p>
+
+            <div class="log-box">
+
+                "Not the newest.<br>
+                Created before Archive D.<br>
+                Created after Archive C."
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="archive-card"
+             data-id="C"
+             onclick="selectArchive(this)">
+
+            <h3>Archive C</h3>
+
+            <p>
+                <b>Archive ID:</b> C-91
+            </p>
+
+
+            <div class="log-box">
+
+                "This archive started the reconstruction project."
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="archive-card"
+             data-id="D"
+             onclick="selectArchive(this)">
+
+            <h3>Archive D</h3>
+
+            <p>
+                <b>Archive ID:</b> D-44
+            </p>
+
+
+            <div class="log-box">
+
+                "The final archive.<br>
+                No updates occurred after this one."
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <div class="recovery-panel">
+
+        <h3>
+            Recovered Timeline
+        </h3>
+
+
+        <div id="archive-order">
+            NONE
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <button onclick="resetArchive()">
+        Reset Order
+    </button>
+
+
+
+    <button onclick="checkRound1()">
+        Verify Timeline
+    </button>
+
+
+
+    <div class="feedback" id="feedback1"></div>
+
+
+</div>
+
+
+<!-- =========================
+ROUND 2
+========================= -->
+
+
+<div class="round-card locked" id="round2">
+    <h2>
+        📦 Round 2: HTML Investigation
+        <span class="status-badge" id="status2">LOCKED</span>
+    </h2>
+
+    <p>Analyze the full archive markup below. Identify the major syntax and structure errors causing the parser to fail.</p>
+
+    <div class="source-box html-code-box">
+<pre>
+1.  &lt;html&gt;
+2.    &lt;head&gt;
+3.      &lt;title&gt;Core Security System&lt;/title&gt;
+4.    &lt;/head&gt;
+5.    &lt;body&gt;
+6.      &lt;heading&gt;Main Control Vault&lt;/heading&gt;      
+7.      &lt;div class="system-status"&gt;
+8.        &lt;p&gt;System Status: &lt;b&gt;Fully Operational&lt;/p&gt;&lt;/b&gt;
+9.       &lt;p&gt;Security Level: Alpha-9&lt;/p&gt;
+10.     &lt;/div&gt;    
+11.     &lt;image src="vault.png" alt="Vault Room"&gt;
+12.     &lt;h3&gt;Active Security Nodes&lt;/h3&gt;
+13.     &lt;table border="1"&gt;
+14.       Unregistered Access Warning
+15.       &lt;tr&gt;
+16.         &lt;th&gt;Node ID&lt;/th&gt;
+17.         &lt;th&gt;Status&lt;/th&gt;
+18.       &lt;/tr&gt;
+19.       &lt;tr&gt;
+20.         &lt;td&gt;Node 01&lt;/td&gt;
+21.         &lt;td&gt;Active&lt;/td&gt;
+22.       &lt;/tr&gt;
+23.     &lt;/table&gt;
+24.   &lt;/body&gt;
+25. &lt;/html&gt;
+</pre>
+    </div>
+
+    <p><strong>Question:</strong> Enter the total number of <b>errors</b> that exist in the snippet above?</p>
+
+    <input type="number" id="round2Input" placeholder="Enter total error count">
+    <button onclick="checkRound2()">Submit Investigation</button>
+
+    <div class="feedback" id="feedback2"></div>
+</div>
+
+<!-- =========================
+ROUND 3
+========================= -->
+
+
+<div class="round-card locked" id="round3">
+
+
+<h2>
+
+🧮 Round 3: Logic Matrix
+
+
+<span class="status-badge" id="status3">
+LOCKED
+</span>
+
+
+</h2>
+
+
+
+
+
+
+<p>
+Determine who owns the Server infrastructure node.
+</p>
+<p>
+Each engineer has their own devices and departments, Find out who owns the <b>server</b>.
+
+</p>
+
+
+
+
+
+
+
+<div class="logic-columns">
+
+
+<div class="logic-column">
+
+
+<h3>
+Engineers
+</h3>
+
+
+<ul>
+
+<li>Alex</li>
+<li>Blake</li>
+<li>Casey</li>
+<li>Drew</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="logic-column">
+
+
+<h3>
+Devices
+</h3>
+
+
+<ul>
+
+<li>Laptop</li>
+<li>Tablet</li>
+<li>Phone</li>
+<li>Server</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="logic-column">
+
+
+<h3>
+Departments
+</h3>
+
+
+<ul>
+
+<li>AI</li>
+<li>Security</li>
+<li>Networks</li>
+<li>Robotics</li>
+
+</ul>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="source-box clue-box">
+<strong>Clues:</strong><br>
+1. Alex doesn't work in AI.<br>
+2. Server belongs to Robotics.<br>
+3. Casey owns neither Laptop nor Tablet.<br>
+4. Blake works in Security.<br>
+5. Phone belongs to AI.<br>
+6. Drew doesn't own the Server.<br>
+7. Tablet belongs to Security.
+</div>
+
+
+
+
+
+
+
+
+<p>
+Who owns the <b>Server</b>?
+</p>
+
+
+
+
+
+
+<input 
+type="text"
+id="round3Input"
+placeholder="Enter engineer name"
+>
+
+
+
+
+<button onclick="checkRound3()">
+
+Solve Logic Matrix
+
+</button>
+
+
+
+
+
+<div class="feedback" id="feedback3"></div>
+
+
+
+</div>
+
+<!-- =========================
+ROUND 6
+========================= -->
+
+
+<div class="round-card locked" id="round4">
+
+
+<h2>
+
+🧩 Round 4: The Final Cipher
+
+
+<span class="status-badge" id="status4">
+LOCKED
+</span>
+
+
+</h2>
+
+
+
+
+
+
+<p>
+
+Decode the two scrambled memory string constants.
+The fragments are out of order, and the characters inside each fragment are scrambled.
+<b>Use the given fragments to create a word</b>
+
+</p>
+
+
+
+<div class="code-box">
+
+<pre>
+const A = "TCR";
+const B = "IRN";
+const C = "POU";
+const D = "GEE";
+const E = "GN";
+const F = "EM";
+const G = "NEI";
+
+/*
+Required Fragments for Word 1:  A, F, C
+
+Required Fragments for Word 2: D, G, E, B
+*/
+
+</pre>
+
+</div>
+
+
+<input 
+type="text"
+id="round4Input"
+placeholder="Enter both words separated by space"
+>
+
+
+
+
+
+
+
+<button onclick="checkRound4()">
+
+Reconstruct Archive
+
+</button>
+
+
+
+
+
+
+
+<div class="feedback" id="feedback4"></div>
+
+
+
+
+
+</div>
+
+<!-- =========================
+ROUND 3
+========================= -->
+
+
+<div class="round-card locked" id="round5">
+
+
+<h2>
+
+🔑 Round 5: Cipher Chamber
+
+
+<span class="status-badge" id="status5">
+LOCKED
+</span>
+
+
+</h2>
+
+
+
+
+
+<p>
+
+An encrypted transmission was recovered from the ancient archive.
+Decode the message and recover the hidden phrase. 
+
+</p>
+
+
+
+
+
+
+
+<div class="cipher-terminal">
+
+
+<h3>
+Encrypted Transmission
+</h3>
+
+
+
+<div class="cipher-message">
+
+
+YUXAN YNEIA
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="engineer-note">
+
+
+<h3>
+Ancient Archive Note
+</h3>
+
+
+
+<p>
+The ancient engineers left a note in the archive:
+</p>
+
+
+
+<p>
+
+"The ancient engineers protected their messages using a method named after a famous Roman leader, Caesar. The old cipher system was simple but effective, moving letters through the alphabet to hide important information."
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<button 
+id="hint5Btn"
+onclick="revealHint5()"
+class="hint-btn">
+
+Unlock Cipher Key Hint (-10 Points)
+
+</button>
+
+
+
+
+
+
+
+<div 
+id="hint5Box"
+class="hint-content"
+style="display:none;">
+
+
+
+<p>
+
+<strong>
+Decryption Data:
+</strong>
+
+</p>
+
+
+
+<p>
+
+The letters should be shifted exactly:
+
+<strong>
+4 slots forward
+</strong>
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="answer-panel">
+
+
+<p>
+Recovered phrase:
+</p>
+
+
+
+<input 
+type="text"
+id="round5Input"
+placeholder="Enter decrypted phrase"
+>
+
+
+
+
+<button onclick="checkRound5()">
+
+Decrypt Transmission
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feedback" id="feedback5"></div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========================
+ROUND 5
+========================= -->
+
+
+<div class="round-card locked" id="round6">
+
+
+<h2>
+
+💾 Round 6: Binary Transmission Recovery
+
+
+<span class="status-badge" id="status6">
+LOCKED
+</span>
+
+
+</h2>
+
+
+
+
+
+
+<p>
+
+Convert the binary sequence to read the ASCII sentence data text.
+
+</p>
+
+
+
+
+
+
+
+<div class="binary-box">
+
+
+<div class="binary-word">
+
+01000010 01000001 01000011 01001011 00100000
+
+</div>
+
+
+<div class="binary-word">
+
+01010100 01001111 00100000
+
+</div>
+
+
+<div class="binary-word">
+
+01010100 01001000 01000101 00100000
+
+</div>
+
+
+<div class="binary-word">
+
+01000110 01010101 01010100 01010101 01010010 01000101
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<button 
+id="hint6aBtn"
+onclick="revealHint6a()"
+class="hint-btn">
+
+Unlock ASCII Conversion Table
+
+</button>
+
+
+<div 
+id="hint6aBox"
+class="hint-content"
+style="display:none;">
+
+<h3>
+ASCII Conversion Board
+</h3>
+
+<table>
+<tr><th>Char</th><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td><td>G</td><td>H</td><td>I</td><td>J</td><td>K</td><td>L</td><td>M</td></tr>
+<tr><th>Dec</th><td>65</td><td>66</td><td>67</td><td>68</td><td>69</td><td>70</td><td>71</td><td>72</td><td>73</td><td>74</td><td>75</td><td>76</td><td>77</td></tr>
+</table>
+
+<table>
+<tr><th>Char</th><td>N</td><td>O</td><td>P</td><td>Q</td><td>R</td><td>S</td><td>T</td><td>U</td><td>V</td><td>W</td><td>X</td><td>Y</td><td>Z</td><td>Space</td></tr>
+<tr><th>Dec</th><td>78</td><td>79</td><td>80</td><td>81</td><td>82</td><td>83</td><td>84</td><td>85</td><td>86</td><td>87</td><td>88</td><td>89</td><td>90</td><td>32</td></tr>
+</table>
+
+<button 
+id="hint6bBtn"
+onclick="revealHint6b()"
+class="hint-btn">
+
+Unlock Binary To Decimal Conversion
+
+</button>
+
+
+
+
+
+
+
+<div 
+id="hint6bBox"
+class="hint-content"
+style="display:none;">
+
+
+<p>
+
+<strong>
+Example:
+</strong>
+
+</p>
+
+
+<p>
+
+Binary: 01000001
+
+</p>
+
+
+<p>
+
+Calculation:
+
+<br>
+
+(0×128)+(1×64)+(0×32)+(0×16)+(0×8)+(0×4)+(0×2)+(1×1)=65
+
+</p>
+
+
+<p>
+
+ASCII:
+
+<br>
+
+65 = A
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p>
+
+Recovered message:
+
+</p>
+
+
+
+
+
+<input 
+type="text"
+id="round6Input"
+placeholder="Enter message"
+>
+
+
+
+
+<button onclick="checkRound6()">
+
+Restore Transmission
+
+</button>
+
+
+
+
+
+
+<div class="feedback" id="feedback6"></div>
+
+
+
+
+</div>
+
+<!-- =========================
+ROUND 7
+========================= -->
+
+
+<div class="round-card locked" id="round7">
+
+
+<h2>
+
+🧪 Round 7: Data Pipe Connection
+
+
+<span class="status-badge" id="status7">
+LOCKED
+</span>
+
+
+</h2>
+
+
+
+
+
+
+<p>
+
+Connect the data flow from the
+
+<strong style="color:#3cff8b;">
+SOURCE
+</strong>
+
+node to the
+
+<strong style="color:#ff9900;">
+DESTINATION
+</strong>
+
+node.
+
+</p>
+
+
+
+
+<p>
+
+Rotate pipe pieces until a continuous network is created.
+
+Unused pipes may exist inside the system.
+
+</p>
+
+
+
+
+
+
+
+
+
+<div id="pipe-level-1">
+
+
+<h3>
+Level 1: Sub-Junction Network (5×5)
+</h3>
+
+
+<div id="pipeGrid5" class="pipe-grid grid-5x5">
+
+</div>
+
+
+
+
+<button onclick="checkPipeLevel1()">
+
+Validate Pipeline 1
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="pipe-level-2"
+style="display:none;">
+
+
+
+<h3>
+Level 2: Civilization Core Network (10×10)
+</h3>
+
+
+
+
+<div id="pipeGrid10" class="pipe-grid grid-10x10">
+
+</div>
+
+
+
+
+<button onclick="checkPipeLevel2()">
+
+Validate Pipeline 2
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="feedback" id="feedback7"></div>
+
+
+
+
+</div>
+
+
+
+<div class="round-card locked" id="round8">
+    <h2>
+        ⌛ Round 8: Wayback Time Machine
+        <span class="status-badge" id="status8">LOCKED</span>
+    </h2>
+
+    <div class="engineer-note" style="margin-bottom: 15px; border-left: 4px solid #00c3ff; padding-left: 10px;">
+        <h3 style="margin-top:0;">📖 Cyber Archaeology Concept: Web Archiving & Code Diffs</h3>
+        <p>
+            When web systems collapse, cyber-archaeologists inspect historical snapshots. They use <b>Diffs</b> to compare versions: red lines starting with <code>-</code> were removed, while green lines starting with <code>+</code> were added.
+        </p>
+    </div>
+
+    <p>
+        <strong>Mission:</strong> Compare the recovered <b>2008 Historical Snapshot</b> with the <b>2026 Corrupted System</b>. Analyze the diff below to recover the original <code>backupPort</code> number before it was altered.
+    </p>
+
+    <div class="source-box html-code-box">
+<pre style="font-family: 'Share Tech Mono', monospace; line-height: 1.4;">
+--- Archived Snapshot (Year 2008)
++++ Corrupted Archive (Year 2026)
+
+  1. &lt;html&gt;
+  2.   &lt;head&gt;
+  3.     &lt;title&gt;Civilization Recovery Vault&lt;/title&gt;
+  4.   &lt;/head&gt;
+  5.   &lt;body&gt;
+- 6.     &lt;div id="vaultConfig" backupPort="8090" status="active"&gt;
++ 6.     &lt;div id="vaultConfig" backupPort="1001" status="corrupted"&gt;
+  7.     &lt;p&gt;System Restore Node Ready&lt;/p&gt;
+  8.   &lt;/body&gt;
+  9. &lt;/html&gt;
+</pre>
+    </div>
+
+    <p><strong>Question:</strong> What was the original <code>backupPort</code> value in the 2008 historical snapshot?</p>
+
+    <input type="number" id="round8Input" placeholder="Enter original port number">
+    <button onclick="checkRound8()">Analyze Historical Diff</button>
+
+    <div class="feedback" id="feedback8"></div>
+</div>
+
+
+
+
+
+
+
+
+<!-- =========================
+FINAL ROUND
+========================= -->
+
+
+<div class="round-card locked" id="finalRound">
+
+
+<h2>
+
+🖥️ Civilization Restoration
+
+
+<span class="status-badge" id="statusFinal">
+
+LOCKED
+
+</span>
+
+
+</h2>
+
+
+
+
+
+
+<p>
+
+Provide the consolidated 7-digit sequence configuration override key gathered from all completed layers.
+
+</p>
+
+
+<div class="code-box final-key">
+
+SYSTEM REBOOT KEY 
+_ _ _ _ _ _ _ 
+
+</div>
+
+
+<input 
+type="text"
+id="finalInput"
+placeholder="Enter 7-digit master key"
+>
+
+
+
+
+
+<button onclick="checkFinal()">
+
+Initialize Global Reboot
+
+</button>
+
+
+
+
+
+
+
+<div class="feedback" id="finalFeedback"></div>
+
+
+</div>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+
+</body>
+
+</html>
